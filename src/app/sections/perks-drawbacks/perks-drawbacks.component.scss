@@ -3,6 +3,7 @@
 .perks-drawbacks{
     min-width: 100vw;
     min-height: 100vh;
+
     background-color: $font;
     display: flex;
     flex-direction: column;
@@ -21,6 +22,7 @@
     }
     .options{
         display: flex;
+        z-index: 2;
 
     }
     .selection{

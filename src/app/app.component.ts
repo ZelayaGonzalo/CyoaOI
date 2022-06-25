@@ -25,7 +25,7 @@ export class AppComponent {
   rewards = rewards
 
   currentBackground:string =''
-  currentStage:number = 0
+  currentStage:number = 2
   currentKarma:number = 0
 
   selections:Mirror[] = []

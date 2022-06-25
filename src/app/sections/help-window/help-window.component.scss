@@ -153,8 +153,12 @@
         height: 100%;
         min-height: 500px;
         padding: 10px;
+        .background-image{
+            width: 100%;
+        }
         .karma{
-            top: 30px;
+            top: auto;
+            bottom: 25px;
         }
     }
 }

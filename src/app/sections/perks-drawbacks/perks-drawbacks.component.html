@@ -22,6 +22,7 @@
             <app-perk-mirror [data]="item" [selections]="selected" (showCard)="openMirror($event)" (deleteUnavaliable)="onRemove($event)"></app-perk-mirror>
         </li>
     </ul>
+    <div class="background-dim"></div>
 </section>
 
 <app-help-window *ngIf="showHelp" class="pop-up-help" [selected]="selected" [buttonText]="this.showButtonText" [buttonLayout]="this.showButtonLayout" [card]="currentCard"   (close)="onHideHelp()" (pick)="onPick($event)" (remove)="onRemove($event)" (nextStage)="toNextStage()" @spinShow>
