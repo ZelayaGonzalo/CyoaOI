@@ -1,0 +1,54 @@
+<section class="ending-page">
+    <h1 class="title" >THANK YOU FOR PLAYING!</h1>
+    <div class="options">
+        <button class="button" (click)="detailed = !detailed">{{!detailed ?'Show':'Hide'}}Details</button>
+        <label for="scale">Scale:</label>
+        <select name="scale" id="scale" [(ngModel)]="currentQuality">
+            <option value="1">Normal(1x)</option>
+            <option value="2">High(2x)</option>
+            <option value="2.5">Very High(3x)</option>
+            <option value="3">????(5x)</option>
+        </select>
+        <button class="button" (click)="downloadImage()">Download
+            <ngx-spinner type="ball-scale-multiple" [fullScreen]="false" [size]="'default'"></ngx-spinner>
+        </button>
+    </div>
+    <p style="color: white">*Download may take a bit to process, if an image fails to appear try downloading again</p>
+    <div #screen id="resume" class="resume simple">
+        <h1 class="title">YOUR WORLD</h1>
+        <div class="mirrors world">
+            <app-ending-mirror *ngFor="let item of world" [data]="item" [detailed]="detailed"></app-ending-mirror>
+        </div>
+        <div class="container">
+            <h1 class="title">YOUR NEW SELF</h1>
+            <div class="mirrors yourself">
+                <app-ending-mirror *ngFor="let item of yourself" [data]="item" [detailed]="detailed"></app-ending-mirror>
+            </div>
+        </div>
+        <div class="container" *ngIf="perks.length > 0">
+            <h1 class="title">YOUR PERKS</h1>
+            <div class="mirrors perks">
+                <app-ending-mirror *ngFor="let item of perks" [data]="item" [detailed]="detailed"></app-ending-mirror>
+            </div>
+         </div>
+         <div class="container" *ngIf="drawbacks.length > 0">
+            <h1 class="title">YOUR DRAWBACKS</h1>
+            <div class="mirrors perks">
+                <app-ending-mirror *ngFor="let item of drawbacks" [data]="item" [detailed]="detailed"></app-ending-mirror>
+            </div>
+         </div>
+        <div class="containers" *ngIf="reward.length > 0">
+            <h1 class="title">YOUR REWARDS</h1>
+            <div class="mirrors perks">
+                <app-ending-mirror *ngFor="let item of reward" [data]="item" [detailed]="detailed"></app-ending-mirror>
+            </div>
+        </div>
+        <div class="signature">
+            Cyoa original by u/xXdarkangel118Xx, website by u/0PT1C0
+        </div>
+    </div>
+    <div id="download">
+        <img #canvas>
+        <a #downloadLink></a>
+      </div>
+</section>

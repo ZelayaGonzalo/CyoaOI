@@ -1,0 +1,31 @@
+<app-nav-bar *ngIf="currentStage >= 1 && currentStage != 8" [currentKarma]="currentKarma" [selected]="selections"></app-nav-bar>
+<app-welcome *ngIf="currentStage === 0" (nextStage)="changeStage()" @zoominDelayAnimation></app-welcome>
+<app-type-of-world *ngIf="currentStage === 1" (addSelection)="addSelection($event)" (nextStage)="changeStage()" [intro]="intros[0]" [types]="types" ></app-type-of-world>
+<app-world-setting *ngIf="currentStage === 2" (addSelection)="addSelection($event)" (nextStage)="changeStage()" [worlds]="worlds" [intro]="intros[1]" (setBackground)="setBakcground($event)"></app-world-setting>
+<app-type-of-world *ngIf="currentStage === 3" (addSelection)="addSelection($event)" (nextStage)="changeStage()" [types]="worldTypes" [intro]="intros[2]" [background]="currentBackground" ></app-type-of-world>
+<app-role *ngIf="currentStage === 4" (addSelection)="addSelection($event)" (nextStage)="changeStage()" [roles]="roles" [intro]="intros[3]" [background]="currentBackground"></app-role>
+<app-type-of-world *ngIf="currentStage === 5" (addSelection)="addSelection($event)" (nextStage)="changeStage()" [types]="characters" [intro]="intros[4]" [background]="currentBackground" [selected]="selections"></app-type-of-world>
+<app-perks-drawbacks
+*ngIf="currentStage === 6"
+(addSelection)="addSelection($event)"
+[perks]="perks"
+[drawbacks]="drawbacks"
+[selected]="selections"
+(removeSelection)="removeSelection($event)"
+(nextStage)="changeStage()"
+[intro]="intros[5]"
+[background]="currentBackground"
+></app-perks-drawbacks>
+<app-perks-drawbacks
+*ngIf="currentStage === 7"
+(addSelection)="addSelection($event)"
+[perks]="rewards"
+[selected]="selections"
+(removeSelection)="removeSelection($event)"
+(nextStage)="changeStage()"
+[intro]="intros[6]"
+[background]="currentBackground"
+></app-perks-drawbacks>
+<app-ending [selections]="selections" *ngIf="currentStage === 8"
+>
+</app-ending>

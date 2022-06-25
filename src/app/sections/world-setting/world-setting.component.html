@@ -1,0 +1,11 @@
+<section class="world-setting" [ngClass]="showHelp ? 'blur':''">
+    <h1 class="title">The World's Setting</h1>
+    <ul class="mirrors">
+        <app-mirror  *ngFor="let item of worlds;let i = index" [data]="item" [selected]="selected" (showCard)="openMirror($event)">
+
+        </app-mirror>
+    </ul>
+</section>
+<app-help-window *ngIf="showHelp" class="pop-up-help" [card]="currentCard" [buttonText]="this.showButtonText" [buttonLayout]="this.showButtonLayout" (close)="onHideHelp()" (pick)="onPick($event)" @spinShow>
+
+</app-help-window>

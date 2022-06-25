@@ -1,0 +1,21 @@
+<div class="nav-bar">
+    <div class="progress">
+        <ul class="line">
+            <ng-container *ngFor="let item of selected">
+                <li class="step"  [ngStyle]="{'background-image':'url('+item.image+')'}" *ngIf="item.type != 'perk' && item.type != 'reward' && item.type != 'drawback'">
+                    <div class="border" *ngIf="item.type != 'perk'">
+                        <img src="../../../assets/Images/path3620.svg">
+                    </div>
+                    <div class="show-title" *ngIf="item.type != 'perk'">
+                        <p>{{item.title}}</p>
+                    </div>
+                </li>
+            </ng-container>
+            <div class="middle-line" >
+                
+            </div>
+        </ul>
+    </div>
+    <p>Karma: {{currentKarma}}</p>
+    
+</div>

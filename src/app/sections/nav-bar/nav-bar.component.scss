@@ -1,0 +1,86 @@
+@import '../../models/named_variables';
+.nav-bar{
+    width: 100%;
+    background-color: $font;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: $background;
+    border-bottom: 2px solid $yellow;
+    .progress{
+        .line{
+            display: flex;
+            position: relative;
+            .step{
+                position: relative;
+                z-index: 3;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin: 0 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-size: cover;
+                background-position: top;
+                background-repeat: no-repeat;
+                .border{
+                    position: absolute;
+                    width: 120%;
+                    height: 120%;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                img{
+                    width: 80%;
+                    height: auto;
+                    border-radius: 50%;
+                    overflow: hidden;
+                }
+                .show-title{
+                    position: absolute;
+                    top: 100%;
+                    background-color: $pink;
+                    color: $font-white;
+                    font-weight: bold;
+                    left: 10px;
+                    border-radius: 4px;
+                    p{
+                        font-size: 0;
+                        transition: 0.3s;
+                    }
+                }
+                &:hover{
+                    .show-title{
+                       p{
+                           font-size: 12px;
+                           padding: 10px;
+                    }
+                    }
+                }
+            }
+            .middle-line{
+                z-index: 2;
+                position: absolute;
+                width: 80%;
+                height: 20px;
+                top: calc(50% - 10px);
+                background-image: url('../../../assets/Images/path376.svg');
+                background-size:  auto 100%;
+                background-repeat: repeat;
+            }
+        }
+    }
+    p{
+        font-size: 16px;
+        font-weight: bold;
+        padding: 0 10px;
+    }
+}
+

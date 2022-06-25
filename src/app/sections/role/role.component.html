@@ -1,0 +1,12 @@
+<section class="role" [ngClass]="showHelp ? 'blur':''" [ngStyle]="{'background-image':'url('+background+')'}">
+    <h1 class="title">Your Role</h1>
+    <ul class="mirrors">
+        <app-mirror  *ngFor="let item of roles;let i = index" [data]="item" [selected]="selected" (showCard)="openMirror($event)">
+        </app-mirror>
+    </ul>
+    <div class="background-dim"></div>
+</section>
+
+<app-help-window *ngIf="showHelp" class="pop-up-help" [card]="currentCard" [buttonText]="this.showButtonText" [buttonLayout]="this.showButtonLayout" (close)="onHideHelp()" (pick)="onPick($event)" @spinShow>
+
+</app-help-window>

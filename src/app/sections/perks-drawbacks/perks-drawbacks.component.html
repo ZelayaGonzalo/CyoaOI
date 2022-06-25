@@ -1,0 +1,29 @@
+<section class="perks-drawbacks" [ngStyle]="{'background-image':'url('+background+')'}">
+    <h1 class="title">
+       {{!showDrawbacks ? 'Perks':'Drawbacks'}}
+    </h1>
+    <div class="options">
+        <button class="button" *ngIf="drawbacks.length > 0"  (click)="onChangeShow()">
+            Show  {{showDrawbacks ? 'Perks':'Drawbacks'}}
+        </button>
+        <button class="button" (click)="onContinue()">
+            Continue
+        </button>
+
+    </div>
+    
+    <ul class="mirrors perks" *ngIf="!showDrawbacks">
+        <li *ngFor="let item of perks" >
+            <app-perk-mirror [data]="item" [selections]="selected" (showCard)="openMirror($event)" (deleteUnavaliable)="onRemove($event)"></app-perk-mirror>
+        </li>
+    </ul>
+    <ul class="mirrors perks" *ngIf="showDrawbacks">
+        <li *ngFor="let item of drawbacks" >
+            <app-perk-mirror [data]="item" [selections]="selected" (showCard)="openMirror($event)" (deleteUnavaliable)="onRemove($event)"></app-perk-mirror>
+        </li>
+    </ul>
+</section>
+
+<app-help-window *ngIf="showHelp" class="pop-up-help" [selected]="selected" [buttonText]="this.showButtonText" [buttonLayout]="this.showButtonLayout" [card]="currentCard"   (close)="onHideHelp()" (pick)="onPick($event)" (remove)="onRemove($event)" (nextStage)="toNextStage()" @spinShow>
+
+</app-help-window>

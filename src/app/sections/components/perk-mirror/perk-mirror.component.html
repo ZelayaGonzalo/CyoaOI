@@ -1,0 +1,20 @@
+<div class="mirror" [ngClass]="{selected:selected,broken:broken}"(click)="onClick()">
+    
+    <div class="borders" *ngIf="selected && data.type === 'perk' || selected && data.type === 'reward'">
+        <img src="../../../assets/Images/path328.svg">
+    </div>
+    <div class="borders border-drawback" *ngIf="selected && data.type === 'drawback'">
+        <img src="../../../assets/Images/path1072.svg">
+    </div>
+    <div class="borders-selected" *ngIf="!selected">
+        
+    </div>
+    <div class="background"  [ngClass]="broken ? 'blur':''" [ngStyle]="{'background-image':'url('+data.image}" >
+    </div>
+    <div class="background broken-bg" *ngIf="broken" >
+
+    </div>
+    <div class="name"  [ngClass]="data.type === 'drawback' ? 'name-drawback':''">
+        <p [ngClass]="broken ? 'blur':''">{{data.title}}</p>
+    </div>
+</div>

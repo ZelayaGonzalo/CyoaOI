@@ -1,0 +1,13 @@
+<section class="type-world" [ngClass]="showHelp ? 'blur':''" [ngStyle]="{'background-image':'url('+background+')'}">
+    <h1 class="title">{{pageTitle}}</h1>
+    <ul class="mirrors" [ngStyle]="intro.title === 'Who are you?'? {'max-width':'1500px'} : {}">
+        <app-mirror  *ngFor="let item of types;let i = index" [data]="item" [selected]="selected" (showCard)="openMirror($event)">
+
+        </app-mirror>
+    </ul>
+    <div class="background-dim"></div>
+</section>
+
+<app-help-window *ngIf="showHelp" class="pop-up-help" [buttonText]="this.showButtonText" [buttonLayout]="this.showButtonLayout" [card]="currentCard"  (close)="onHideHelp()" (pick)="onPick($event)" @spinShow>
+
+</app-help-window>

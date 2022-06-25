@@ -1,0 +1,29 @@
+<div class="mirror" *ngIf="!detailed else detailed_content">
+    <div class="borders">
+        <img src="../../../assets/Images/path328.svg">
+    </div>
+    <div class="background" [ngStyle]="{'background-image':'url('+data.image}" >
+
+    </div>
+    <div class="name" >
+        <p>{{data.title}}</p>
+    </div>
+</div>
+
+<ng-template #detailed_content>
+    <div class="help-window" >
+        <div class="background-image" [ngStyle]="{'background-image':'url('+data.image+''}">
+        </div>
+        <div *ngIf="data.karmaValue != 0" class="karma">
+            <p *ngIf="data.karmaValue>0" class="add">{{data.karmaValue}}</p>
+            <p *ngIf="data.karmaValue<0" class="reduce">{{data.karmaValue}}</p>
+        </div>
+        <h2 class="title">{{data.title}}</h2>
+        <div class="text-body" [innerHtml]="data.description"></div>
+       
+        <div class="background-help">
+            <img src="../../../assets/Images/path379.svg">
+        </div>
+    </div>
+    
+</ng-template>

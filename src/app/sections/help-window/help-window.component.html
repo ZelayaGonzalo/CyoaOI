@@ -1,0 +1,38 @@
+<div class="help-window" >
+    <div class="background-image" [ngStyle]="{'background-image':'url('+card.image+''}" [ngClass]="isBroken ? 'blur':''">
+
+    </div>
+    <div class="background-image broken-mirror" *ngIf="isBroken">
+
+    </div>
+    <div *ngIf="card.karmaValue != 0" class="karma" [ngClass]="isBroken ? 'blur':''">
+        <p *ngIf="card.karmaValue>0" class="add">{{card.karmaValue}}</p>
+        <p *ngIf="card.karmaValue<0" class="reduce">{{card.karmaValue}}</p>
+    </div>
+    <h2 class="title" [ngClass]="isBroken ? 'blur':''">{{card.title}}</h2>
+    <div class="text-body" [innerHtml]="card.description" *ngIf="!isBroken"></div>
+    <div class="text-body" *ngIf="isBroken">
+        I'm sorry but you can't go trough here.
+        <p class="requirements" *ngIf="card.requires.length > 0">Required(any):</p>
+        <p class="requirements-body" *ngFor="let item of card.requires">
+            -{{item}}
+        </p>
+        <p class="requirements incompatible" *ngIf="card.incompatible.length > 0">Incompatible:</p>
+        <p class="requirements incompatible-body" *ngFor="let item of card.incompatible">-{{item}}</p>
+    
+    </div>
+    
+    <div class="buttons single-button" *ngIf="buttonLayout === 'single'">
+        <div class="upgrade" *ngIf="upgradePurchased">
+            *{{warningMessage}}
+        </div>
+        <button (click)="onClose()">{{buttonText}}</button>
+    </div>
+    <div class="buttons double-button" *ngIf="buttonLayout === 'double'">
+        <button (click)="onPick()">{{buttonText}}</button>
+        <button class="cancel" (click)="onClose()">Close</button>
+    </div>
+    <div class="background-help">
+        <!--<img src="../../../assets/Images/path379.svg">-->
+    </div>
+</div>

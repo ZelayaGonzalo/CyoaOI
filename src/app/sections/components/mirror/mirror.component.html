@@ -1,0 +1,14 @@
+<div class="mirror" [ngClass]="broken ? 'broken':''" (click)="onClick()">
+    <div class="borders">
+        <img src="../../../assets/Images/path328.svg">
+    </div>
+    <div class="background" [ngClass]="broken ? 'blur':''" [ngStyle]="{'background-image':'url('+data.image}" >
+
+    </div>
+    <div class="background broken-bg" *ngIf="broken" >
+
+    </div>
+    <div class="name" >
+        <p [ngClass]="broken ? 'blur':''">{{data.title}}</p>
+    </div>
+</div>

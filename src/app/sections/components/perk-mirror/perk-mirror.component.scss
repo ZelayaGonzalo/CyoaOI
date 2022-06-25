@@ -1,0 +1,69 @@
+@import '../../../models/named_variables';
+.mirror{
+    .broken-bg{
+        background-image: url('../../../../assets/Images/broken.svg');
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .background{
+        transition: 1.5s;
+    }
+    .border-drawback{
+        img{
+            max-width: 109%;
+        }
+    }
+    .borders-selected{
+        border: 8px solid gray;
+        width: 100%;
+        height: 100%;
+        border-radius: 70%;
+        z-index: 1;
+    }
+    .name{
+        background-color: gray;
+    }
+}
+.broken{
+    cursor: not-allowed;
+    &:hover{
+        transform: none;
+        .background{
+            box-shadow: 0px 0px 10px 5px rgba(255,255,255,0.61);
+            -webkit-box-shadow: 0px 0px 10px 5px rgba(255,255,255,0.61);
+            -moz-box-shadow: 0px 0px 10px 5px rgba(255,255,255,0.61);
+        }
+    }
+}
+.selected{
+    .background{
+        box-shadow: 0px 0px 11px 30px rgba(255, 255, 255, 0.5);
+        -webkit-box-shadow: 0px 0px 11px 30px rgba(255, 255, 255, 0.5);
+        -moz-box-shadow: 0px 0px 11px 30px rgba(255, 255, 255, 0.5);
+    }
+    .name{
+        background-color: $yellow;
+        p{
+            color: $pink;
+        }
+    }
+    .name-drawback{
+        width: 92%;
+        background-color: $font;
+        z-index: 2;
+    }
+    
+}
+.not-selected{
+    .name{
+       background-color: gray;
+    }
+}
+@media (max-width:600px){
+    .mirror{
+        .borders-selected{
+            border-width: 5px;
+        }
+    }
+}
