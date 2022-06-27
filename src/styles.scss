@@ -6,6 +6,7 @@ body{
     min-width: 100vw;
     font-family: 'Roboto';
     color: $font;
+    overflow-x: hidden;
 }
 *{
     padding: 0;
